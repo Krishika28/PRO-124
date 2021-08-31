@@ -30,7 +30,13 @@ def add_task():
             "status":"error",
             "message": "Please provide the data!"
         },400)
-
+        
+     task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request.json['title'],
+        'description': request.json.get('description', ""),
+        'done': False
+    }    
     contact = {
         'id': tasks[-1]['id'] + 1,
         'Name': request.json['Name'],
